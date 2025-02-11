@@ -1,0 +1,23 @@
+services:
+  scrap-back:
+    build: ./
+    image: scrap-back
+    volumes:
+      - ./:/workdir
+
+    ports:
+      - 8012:8000
+
+  db:
+    image: mysql:8.3
+
+    ports:
+      - 3318:3306
+    volumes:
+      - db:/var/scrap/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: mysql0987Zinbei
+      MYSQL_DATABASE: development
+
+volumes:
+  db:
