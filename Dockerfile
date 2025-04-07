@@ -11,13 +11,13 @@ RUN apt-get update && \
     docker-php-ext-install zip pdo pdo_mysql && \
     docker-php-ext-enable pdo_mysql
 
-    COPY . .
+COPY . .
 
-    # /workdir/アプリ名
-    WORKDIR /workdir/scrapbook
-    
-    EXPOSE 8000
-    
-    RUN composer install
-    
-    CMD [ "php", "artisan", "serve", "--host", "0.0.0.0" ]
+# /workdir/アプリ名
+WORKDIR /workdir/scrapbook
+
+EXPOSE 8000
+
+RUN composer install
+
+CMD [ "php", "artisan", "serve", "--host", "0.0.0.0" ]
