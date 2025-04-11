@@ -86,6 +86,9 @@
                 <label>新しい画像を選ぶ:</label>
                 <input type="file" name="image">
             </div>
+            <div>
+                <input type="checkbox" name="is_borrowed">
+            </div>
             </div>
             <div class="buttons">
                 <button type="submit">更新する</button>

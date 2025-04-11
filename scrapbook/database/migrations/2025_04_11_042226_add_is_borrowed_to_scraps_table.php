@@ -11,12 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('scraps', function (Blueprint $table) {
-            $table->id();
-            $table->string('title');
-            $table->text('url');
-            $table->string('image');
-            $table->timestamps();
+        Schema::table('scraps', function (Blueprint $table) {
+            $table->boolean('is_borrowed')->default(true);
         });
     }
 
@@ -25,6 +21,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('scraps');
+        Schema::table('scraps', function (Blueprint $table) {
+            $table->dropColumn('is_borrowed');
+        });
     }
 };

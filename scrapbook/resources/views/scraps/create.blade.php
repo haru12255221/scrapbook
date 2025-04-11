@@ -45,7 +45,7 @@
             border: none;
             cursor: pointer;
             width: 100%;
-            margin-top: 10px;
+            margin-top: 20px;
         }
         button:hover {
             background-color: #2980b9;
