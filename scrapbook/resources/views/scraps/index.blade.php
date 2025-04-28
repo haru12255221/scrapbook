@@ -49,7 +49,8 @@
             padding: 16px;
             text-align: center;
             font-weight: bold;
-
+            position: relative;
+            height: 4220px;
         }
         .card img:hover {
             transform: translateY(-5px);
@@ -188,10 +189,6 @@
             background-color: #c0392b;
         }
 
-        .login-button {
-            background-color: #green;
-        }
-
         .header-main {
             display: flex;
             justify-content: space-between; /* 要素を両端に配置 */
@@ -202,12 +199,19 @@
             align-items: center;
             justify-content: center;
         }
+
+        .availability-status {
+            position: absolute;
+            bottom: 1%;
+            right: 50%;
+            transform: translate(-50%, -50%);
+        }
     </style>
 </head>
 <body>
     <div class="header">
         <div class="header-main">
-            <h1>本棚</h1>
+            <h1>学校の本棚</h1>
             <div class="action">
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf
@@ -243,13 +247,13 @@
                     <img src="{{ asset('storage/' . $scrap->image) }}" alt="画像">
                 @endif
                 @if ($scrap->is_borrowed)
-                    <div style="color:red; font-weight:bold;">貸出中！</div>
+                    <div style="color:red; font-weight:bold;" class="availability-status">貸出中！</div>
                 @else
-                    <div style="color:green; font-weight:bold;">貸出可能</div>
+                    <div style="color:green; font-weight:bold;" class="availability-status">貸出可能</div>
                 @endif
-                <p><a href="{{ $scrap->url }}"  target="_blank">
+                <!-- <p><a href="{{ $scrap->url }}"  target="_blank">
                     {{ \Illuminate\Support\Str::limit($scrap->url, 20) }}
-                </a></p>
+                </a></p> -->
                 <div class="actions">
                 @if(Auth::check() && Auth::user()->is_admin)
                     <a href="/scraps/{{$scrap->id}}/edit" class="edit-button">編集</a>

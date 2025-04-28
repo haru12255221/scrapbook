@@ -87,6 +87,7 @@
                 <input type="file" name="image">
             </div>
             <div>
+                <label>貸出/返却</label>
                 <input type="checkbox" name="is_borrowed">
             </div>
             </div>

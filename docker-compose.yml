@@ -6,7 +6,7 @@ services:
       - ./:/workdir
 
     ports:
-      - 8012:8012
+      - 8012:8000
 
   db:
     image: mysql:8.3

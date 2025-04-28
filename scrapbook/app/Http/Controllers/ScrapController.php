@@ -24,8 +24,6 @@ class ScrapController extends Controller
 
         $path = $request->file('image')->store('images', 'public');
 
-        dd($request->has('is_borrowed'), $request->is_borrowed);
-
         Scrap::create([
             'title' => $request->title,
             'url' => $request->url,
@@ -53,6 +51,7 @@ class ScrapController extends Controller
         $data = [
             'title' => $request->title,
             'url' => $request->url,
+            'is_borrowed' => $request->has('is_borrowed'),
         ];
 
         if ($request->hasFile('image')) {

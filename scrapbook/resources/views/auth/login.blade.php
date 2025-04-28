@@ -6,7 +6,7 @@
     <title>ログイン</title>
 
     <style>
-        body {
+body {
     background-color: #f0f2f5;
     font-family: 'Helvetica Neue', Arial, sans-serif;
     display: flex;
