@@ -28,6 +28,7 @@ class ScrapController extends Controller
             'title' => $request->title,
             'url' => $request->url,
             'image' => $path,
+            'is_borrowed' => $request->has('is_borrowed'),
         ]);
 
         return redirect('/scraps/create');
@@ -50,6 +51,7 @@ class ScrapController extends Controller
         $data = [
             'title' => $request->title,
             'url' => $request->url,
+            'is_borrowed' => $request->has('is_borrowed'),
         ];
 
         if ($request->hasFile('image')) {
@@ -68,10 +70,14 @@ class ScrapController extends Controller
         return redirect('/scraps');
     }
 
-    // scrap一覧を表示する
-    public function index()
+    // // scrap一覧を表示する
+    public function index(Request $request)
     {
-        $scraps = Scrap::all();
+        $query =Scrap::Query();
+        if ($request->filled('keyword')) {
+            $query->where('title', 'like', '%' . $request->keyword . '%');
+        }
+        $scraps = $query->get();
         return view('scraps.index', compact('scraps'));
     }
 }

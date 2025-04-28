@@ -13,5 +13,7 @@ class scrap extends Model
         'title',
         'url',
         'image',
+        'is_admin',
+        'is_borrowed'
     ];
 }
