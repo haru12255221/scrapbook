@@ -50,7 +50,7 @@
             text-align: center;
             font-weight: bold;
             position: relative;
-            height: 4220px;
+            height: 26rem;
         }
         .card img:hover {
             transform: translateY(-5px);
